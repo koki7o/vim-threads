@@ -1,5 +1,5 @@
 # vim-threads
-## Posting to Threads from within vim
+## Posting on Threads from within vim
 
 - copy the .vimrc into your home folder
 - add your Threads API credentials and user ID
