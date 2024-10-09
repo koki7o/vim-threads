@@ -22,8 +22,15 @@ function! PostToThreads()
   let access_token = 'THREADS_ACCESS_TOKEN'
   let user_id = 'THREADS_USER_ID'
 
-  " Step 1: Create the media container
-  let create_command = 'curl -s -X POST "https://graph.threads.net/v1.0/' . user_id . '/threads?media_type=TEXT&text=' . encoded_text . '&access_token=' . access_token . '"'
+  "Create the media container
+   let create_command = 'curl -s -X POST "https://graph.threads.net/v1.0/' .
+    \ user_id .
+    \ '/threads?media_type=TEXT&text=' .
+    \ encoded_text .
+    \ '&access_token=' .
+    \ access_token .
+    \ '"'
+  
   echo "Executing command: " . create_command
   let create_response = system(create_command)
   echo "Create response: " . create_response
@@ -44,8 +51,15 @@ function! PostToThreads()
   echo "Waiting 30 seconds before publishing..."
   sleep 30
 
-  " Step 2: Publish the container
-  let publish_command = 'curl -s -X POST "https://graph.threads.net/v1.0/' . user_id . '/threads_publish?creation_id=' . container_id . '&access_token=' . access_token . '"'
+  "Publish the container
+    let publish_command = 'curl -s -X POST "https://graph.threads.net/v1.0/' .
+    \ user_id .
+    \ '/threads_publish?creation_id=' .
+    \ container_id .
+    \ '&access_token=' .
+    \ access_token .
+    \ '"'
+
   echo "Executing command: " . publish_command
   let publish_response = system(publish_command)
   echo "Publish response: " . publish_response
